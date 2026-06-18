@@ -3,7 +3,7 @@ function strategic_analysis_report_numerical(baseline_matrix, optimized_matrix)
   scenarios = {baseline_matrix, optimized_matrix};
   scen_names = {'Baseline (Scenario A: 1 Doctor)', 'Optimized (Scenario B: 3 Doctors)'};
 
-  total_time_mins = 1440; %24-hour simulation
+  total_time_mins = 1440;
 
 
   server_counts = [1, 3];
@@ -21,10 +21,10 @@ function strategic_analysis_report_numerical(baseline_matrix, optimized_matrix)
   for s = 1:2
     data = scenarios{s};
 
-    arr   = data(:, 2); % Arrival Times
-    cases = data(:, 3); % Priority levels (1 = Emergency, 2 = Normal)
-    st    = data(:, 4); % Service Start Times
-    ends  = data(:, 5); % Service End Times
+    arr   = data(:, 2); 
+    cases = data(:, 3); 
+    st    = data(:, 4); 
+    ends  = data(:, 5); 
 
     total_served = size(data, 1);
 
