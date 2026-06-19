@@ -6,6 +6,8 @@ patient_matrix = patients_generate();
 [results_before, ~,data_base] = sim_patient_priority(patient_matrix, 1);
 [results_after, ~,data_opt] = sim_patient_priority(patient_matrix, 3);
 strategic_analysis_report_numerical(data_base, data_opt);
+
+end
 %----------------------------------------------------------------------------------
 % Generate Patients functions
 % Written by Tan Khai Yu
@@ -74,7 +76,8 @@ function [results,summary,report_data] = sim_patient_priority(patients,num_docto
   n = size(patients,1);
 
 % Inject random service times
- svc_times = 5 +  rand(n,1)*10;
+ mean_service = 10;
+ svc_times = - mean_service * log(1 - rand(n, 1));
  patients = [patients(:,1:2), svc_times, patients(:,3)];
 % Sort by arrival time
  patients = sortrows(patients,2);
@@ -264,4 +267,3 @@ end
 
       output = (h/2.0) * (fv * w);
    end
- end
